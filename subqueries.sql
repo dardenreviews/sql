@@ -1,4 +1,4 @@
--- Find all the employees with the same hire date as employee 101010 using a sub-query.
+-- 1. Find all the employees with the same hire date as employee 101010 using a sub-query.
 
 SELECT *
 FROM employees
@@ -7,7 +7,7 @@ WHERE hire_date IN
 	FROM employees
 	WHERE emp_no = 101010);
 	
--- Find all the titles held by all employees with the first name Aamod.
+-- 2. Find all the titles held by all employees with the first name Aamod.
 
 SELECT title
 FROM titles
@@ -16,7 +16,7 @@ WHERE emp_no IN
 	FROM employees
 	WHERE first_name = 'Aamod');
 	
--- How many people in the employees table are no longer working for the company?
+-- 3. How many people in the employees table are no longer working for the company?
 
 SELECT *
 FROM employees
@@ -25,7 +25,7 @@ WHERE emp_no NOT IN (
 	FROM salaries
 	WHERE to_date > CURDATE());
 
--- Find all the current department managers that are female.
+-- 4. Find all the current department managers that are female.
 
 SELECT first_name,
 		last_name
@@ -37,7 +37,7 @@ AND emp_no IN(
 	WHERE to_date > CURDATE()
 );
 
--- Find all the employees that currently have a higher than average salary.
+-- 5. Find all the employees that currently have a higher than average salary.
 
 SELECT e.first_name,
 		e.last_name,
@@ -48,7 +48,7 @@ WHERE s.salary >
 	(SELECT AVG(salary)
 	FROM salaries);
 
--- How many current salaries are within 1 standard deviation of the highest salary? (Hint: you can use a built in function to calculate the standard deviation.) What percentage of all salaries is this?
+-- 6. How many current salaries are within 1 standard deviation of the highest salary? (Hint: you can use a built in function to calculate the standard deviation.) What percentage of all salaries is this?
 
 SELECT salary
 FROM salaries
