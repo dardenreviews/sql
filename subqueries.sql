@@ -53,7 +53,7 @@ WHERE s.salary >
 SELECT COUNT(salary)
 FROM salaries
 WHERE to_date > CURDATE()
-AND salary > (SELECT(MAX(salary) - STDDEV(salary))
+AND salary >= (SELECT(MAX(salary) - STDDEV(salary))
 				FROM salaries);
 
 -- The percent of employees whose salaries are within one standard deviation of the highest salary.
@@ -61,7 +61,7 @@ SELECT
 	((SELECT COUNT(salary)
 	FROM salaries
 	WHERE to_date > CURDATE()
-	AND salary > (SELECT(MAX(salary) - STDDEV(salary))
+	AND salary >= (SELECT(MAX(salary) - STDDEV(salary))
 					FROM salaries)) /
 	(SELECT COUNT(*) AS total_emp
 	FROM employees)) * 100 AS percent_employees;
