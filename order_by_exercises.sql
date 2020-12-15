@@ -4,14 +4,14 @@ USE employees;
 
 -- 2. Find all current or previous employees with first names 'Irena', 'Vidya', or 'Maya', and order your results returned by first name. (709 observations)
 
--- In your comments, answer: What was the first and last name in the first row of the results? (10397	1955-11-11	Irena	Reutenauer	M	1993-05-21)
-
 SELECT *
 FROM employees
 WHERE first_name IN ('Irena', 'Vidya', 'Maya')
 ORDER BY first_name;
 
--- What was the first and last name of the last person in the table? (10200	1961-12-31	Vidya	Awdeh	M	1985-10-16)
+-- a. In your comments, answer: What was the first and last name in the first row of the results? (10397	1955-11-11	Irena	Reutenauer	M	1993-05-21)
+
+-- b. What was the first and last name of the last person in the table? (10200	1961-12-31	Vidya	Awdeh	M	1985-10-16)
 
 SELECT *
 FROM employees
@@ -20,14 +20,14 @@ ORDER BY first_name DESC;
 
 -- 3. Find all current or previous employees with first names 'Irena', 'Vidya', or 'Maya', and order your results returned by first name and then last name.  (709 observations)
 
--- In your comments, answer: What was the first and last name in the first row of the results? (46986	1964-10-15	Irena	Acton	M	1992-07-11)
-
 SELECT *
 FROM employees
 WHERE first_name = 'Irena' OR first_name = 'Vidya' OR first_name =  'Maya'
 ORDER BY first_name, last_name;
 
--- What was the first and last name of the last person in the table? (409124	1961-11-01	Irena	Zuberek	M	1987-04-21)
+-- a. In your comments, answer: What was the first and last name in the first row of the results? (46986	1964-10-15	Irena	Acton	M	1992-07-11)
+
+-- b. What was the first and last name of the last person in the table? (409124	1961-11-01	Irena	Zuberek	M	1987-04-21)
 
 SELECT *
 FROM employees
@@ -36,31 +36,31 @@ ORDER BY first_name, last_name DESC;
 
 -- 4. Find all current or previous employees with first names 'Irena', 'Vidya', or 'Maya', and order your results returned by last name and then first name. (709 observations)
 
--- In your comments, answer: What was the first and last name in the first row of the results? (46986	1964-10-15	Irena	Acton	M	1992-07-11)
-
 SELECT *
 FROM employees
 WHERE first_name = 'Irena' OR first_name = 'Vidya' OR first_name =  'Maya'
 ORDER BY last_name, first_name;
 
--- What was the first and last name of the last person in the table? (479435	1959-07-10	Maya	Zyda	M	1987-08-23)
+-- a. In your comments, answer: What was the first and last name in the first row of the results? (46986	1964-10-15	Irena	Acton	M	1992-07-11)
+
+-- b. What was the first and last name of the last person in the table? (479435	1959-07-10	Maya	Zyda	M	1987-08-23)
 
 SELECT *
 FROM employees
 WHERE first_name = 'Irena' OR first_name = 'Vidya' OR first_name =  'Maya'
 ORDER BY last_name DESC, first_name;
 
--- 5. Write a query to find all current employees whose last name starts and ends with 'E'. Sort the results by their employee number. Enter a comment with the number of employees returned, the first employee number and their first and last name, and the last employee number with their first and last name.
-
-SELECT *
-FROM employees 
-WHERE last_name like 'E%';
-
--- 6. Find all current or previous employees whose last name starts OR ends with 'E'. Enter a comment with the number of employees whose last name starts or ends with E. (30_723 observations)
+-- 5. Write a query to find all current employees whose last name starts and ends with 'E'. Sort the results by their employee number. 
 
 SELECT *
 FROM employees 
 WHERE last_name LIKE 'E%' OR last_name LIKE '%E';
+
+-- a. Enter a comment with the number of employees returned, the first employee number and their first and last name, and the last employee number with their first and last name.
+
+
+-- 6. Find all current or previous employees whose last name starts OR ends with 'E'. Enter a comment with the number of employees whose last name starts or ends with E. (30_723 observations)
+
 
 -- How many employees have a last name that ends with E, but does not start with E? (23_393 observations)
 
